@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www/thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>Gross&eacute IP Info</title>
+
+    <link th:insert="~{component-templates/header-tmpl :: head}"></link>
+</head>
+<body>
+<div class="container-lg bso-content">
+    <div th:insert="~{component-templates/nav-tmpl :: navbar}"></div>
+
+    <div class="col-12 anchor">
+        <h1 class="bso-page-title">Connection Information from the Database</h1>
+
+        <!-- <p>Search functionality not yet implemented</p> -->
+
+        <div th:insert="~{component-templates/table :: table}"></div>
+    </div>
+
+    <div th:insert="~{component-templates/footer-tmpl :: footer}"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www/thymeleaf.org">
+<head>
+    <title>Gross&eacute LLC</title>
+
+    <link th:insert="~{component-templates/header-tmpl :: head}"></link>
+</head>
+<body>
+<div class="container-lg bso-content">
+    <div th:insert="~{component-templates/nav-tmpl :: navbar}"></div>
+
+    <div class="anchor">
+        <!-- Begin Lower Page Content -->
+        <div class="col-12">
+            <div class="row">
+                <div>
+                    <div th:insert="~{page-content/index :: index-header}"></div>
+                    <div th:insert="~{page-content/index :: index-content}"></div>
+                </div>
+            </div>
+        </div>
+        <!-- End Lower Page Content -->
+    </div>
+
+    <div th:insert="~{component-templates/footer-tmpl :: footer}"></div>
+</div>
+
+</body>
+</html>

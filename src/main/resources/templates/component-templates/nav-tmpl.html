@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www/thymeleaf.org">
+<nav class="navbar fixed-top bg-purple" th:fragment="navbar">
+    <div class="container-lg nav justify-content-center ">
+        <div class="col-2">
+            <a class="nav-brand nav-link" th:href="@{/}"><i class="fa-solid fa-g"></i> &nbsp Gross&eacute LLC</a>
+        </div>
+
+        <div class="col-2"></div>
+
+        <div class="col-4 text-center">
+            <a class="nav-link d-inline" th:href="@{/}">Home</a>
+    <!--        <a class="nav-link" href="#">Overview</a>-->
+    <!--        <a class="nav-link" href="#">Projects</a>-->
+            <a class="nav-link d-inline" th:href="@{/ip_info}">Tracked Connection Info</a>
+        </div>
+
+        <div class="col-4"></div>
+    </div>
+</nav>
+
+</html>

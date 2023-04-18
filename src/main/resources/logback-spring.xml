@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="ProgramOut" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%green(%date{yyyy-MM-dd_hh:mm:ss}) %yellow([%level]) from %blue(%logger): %message    %red(%xException) %n</pattern>
+        </encoder>
+    </appender>
+
+    <property name="LOGS" value="./runtime-logs"/>
+
+    <appender name="FileOut" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOGS}/sb-application-log.log</file>
+        <encoder>
+            <pattern>%date{yyyy-MM-dd_hh:mm:ss} [%level] from %logger: %message%n%xException%n</pattern>
+        </encoder>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOGS}/archived/sb-application-log-%d{yyyy-MM-dd_hh:mm:ss}.log</fileNamePattern>
+        </rollingPolicy>
+        <timeBasedFineNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+            <maxFileSize>10MB</maxFileSize>
+        </timeBasedFineNamingAndTriggeringPolicy>
+    </appender>
+
+    <logger name="org.hibernate" level="WARN"/>
+    <logger name="com.zaxxer.hikari" level="WARN"/>
+<!--    <logger name="edu.carroll.cs389.service.tracker.TrackServiceRaw" level="OFF"/>-->
+
+    <root level="INFO">
+        <appender-ref ref="ProgramOut"/>
+        <appender-ref ref="FileOut"/>
+    </root>
+</configuration>
