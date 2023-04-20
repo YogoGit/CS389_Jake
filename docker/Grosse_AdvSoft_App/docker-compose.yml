@@ -57,4 +57,3 @@ services:
       default:
         aliases:
           - application_cluster
-
