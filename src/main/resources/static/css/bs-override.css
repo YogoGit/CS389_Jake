@@ -1,0 +1,102 @@
+/* File for CSS which overrides bootstrap's CSS*/
+
+a.nav-link {
+    color: #eee;
+}
+
+a.nav-link:hover {
+    background-color: #ccc;
+    color: #492539;
+}
+
+.bg-purple {
+    background-color: #492539 !important;
+}
+
+.anchor {
+    padding-top: 5.625em;
+}
+
+.bso-page-title {
+    text-align: center;
+    padding-bottom: 0.5em;
+}
+
+.bso-content {
+    background-color: #ccc;
+    min-height: 100vh !important;
+    border-left: solid #492539 0.2em;
+    border-right: solid #492539 0.2em;
+    padding-left: 4em;
+    padding-right: 4em;
+    padding-bottom: 2em;
+}
+
+.bso-table {
+    margin: 0 auto;
+    border: solid #492539 0.5em;
+}
+
+.bso-table-header {
+    background-color: #492539;
+    color: #eee;
+    text-align: center;
+}
+
+.bso-table-header td {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.bso-table-row td {
+    text-align: center;
+}
+
+.nav-brand {
+    font-size: 1.2em;
+    white-space: nowrap;
+}
+
+.nav-brand:hover {
+    color: #eee !important;
+    background-color: #492539 !important;
+}
+
+.footer {
+    color: #aaa;
+}
+
+.footer a{
+    color: #aaa  !important;
+}
+
+.card-theme {
+    background-color: #eee;
+    border: solid #492539 0.2em;
+}
+
+.btn-theme {
+    background-color: #492539;
+    border-color: #492539;
+}
+
+.btn-theme:hover {
+    background-color: #ccc;
+    border-color: #ccc;
+    color: #492539;
+}
+
+.btn-theme:focus {
+    background-color: #ccc;
+    border-color: #ccc;
+    color: #492539;
+    box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.075) inset, 0 0 0.25em #492539;
+}
+
+.bso-image {
+    border: solid #492539 0.2em;
+}
+
+body {
+    background-color: #444;
+}

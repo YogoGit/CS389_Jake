@@ -1,0 +1,60 @@
+version: "3"
+services:
+  application:
+    build: resume-tracker
+    restart: unless-stopped
+    depends_on:
+      db_primary:
+        condition: service_started
+    ports:
+      - '0.0.0.0:80:80'
+    environment:
+      SPRING_APPLICATION_JSON: '{
+        "spring.datasource.url" : "jdbc:postgresql://db_primary:5432/tracker_db",
+        "spring.datasource.username" : "postgres",
+        "spring.datasource.password" : "admin",
+        "spring.datasource.driverClassName" : "org.postgresql.Driver",
+        "spring.jpa.hibernate.ddl-auto" : "update"
+      }'
+    networks:
+      default:
+        aliases:
+          - application_cluster
+  
+  db_primary:
+    build: db-primary
+    ports:
+      - '0.0.0.0:5432:5432'
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    depends_on:
+      db_replica:
+        condition: service_started
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=tracker_db
+      - PG_APP_USER=appUser
+      - PG_APP_PW=appPW
+      - PG_REP_USER=repl
+      - PG_REP_PASSWORD=repl
+    networks:
+      default:
+        aliases:
+          - application_cluster
+  db_replica:
+    build: db-replica
+    ports:
+      - "5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=tracker_db
+      - PG_REP_USER=repl
+      - PG_REP_PASSWORD=repl
+      - PG_MASTER_HOST=pg_master
+    networks:
+      default:
+        aliases:
+          - application_cluster
+
